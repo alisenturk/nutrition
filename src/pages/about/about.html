@@ -1,11 +1,78 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Nutrisyon Bilgileri Hesaplama
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <h3>Nutrisyon Değerleri</h3>
+  <ion-list>
+    <ion-item>
+      <ion-label>Boy</ion-label>
+      <ion-input type="number" [(ngModel)]="model.boy"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Kilo</ion-label>
+      <ion-input type="number" [(ngModel)]="model.kilo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Yaş</ion-label>
+      <ion-input type="number" [(ngModel)]="model.yas"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Cinsiyet</ion-label>
+      <ion-select [(ngModel)]="model.cinsiyet">
+        <ion-option value="k" >Kadın</ion-option>
+        <ion-option value="e">Erkek</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Stres Değeri</ion-label>
+      <ion-input type="number" [(ngModel)]="model.stresDegeri"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Aktivite Değeri</ion-label>
+      <ion-input type="number" [(ngModel)]="model.aktiviteDegeri"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large>Hesapla </button>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5>
+            Bazal Enerji
+          </ion-col>
+          <ion-col col-7>
+              {{model.boy}}
+          </ion-col>
+          <ion-col col-5>
+            İdeal Kilo
+          </ion-col>
+          <ion-col col-7>
+            {{model.cinsiyet}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-5>
+            HRB
+          </ion-col>
+          <ion-col col-7>
+            1
+          </ion-col>
+          <ion-col col-5>
+            G. Enerji İhtiyacı
+          </ion-col>
+          <ion-col col-7>
+            1
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-item>
+
+  </ion-list>
 
 </ion-content>
