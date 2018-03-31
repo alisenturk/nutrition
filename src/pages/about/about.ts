@@ -30,6 +30,9 @@ export class AboutPage {
     }else{
       this.model.idealKilo = parseFloat(parseFloat((45.5 + 2.3 * (this.model.boy / 2.54 - 60)).toString()).toFixed(2));
     }
+    if(!this.model.duzltilmisIdealKilo || this.model.duzltilmisIdealKilo<0){
+      this.model.duzltilmisIdealKilo = this.model.idealKilo;
+    }
   }
   calc(){
     var isBoy = false, isKilo = false, isYas = false, isStress = false, isAktivite = false;
@@ -49,11 +52,22 @@ export class AboutPage {
     }
 
     if(isBoy && this.model.idealKilo && isYas){
-      if(this.model.cinsiyet==='e'){
-        this.model.bazalEnerji = parseFloat(parseFloat((66.75 + (this.model.idealKilo * 13.75) + (this.model.boy * 5) - (this.model.yas * 6.76)).toString()).toFixed(2));
-      }else{
-        this.model.bazalEnerji = parseFloat(parseFloat((655.1 + (this.model.idealKilo *9.56) + (this.model.boy *1.85) - (this.model.yas * 4.86)).toString()).toFixed(2));
+      let kilo:number;
+      kilo = this.model.idealKilo;
+      if(this.model.duzltilmisIdealKilo && this.model.duzltilmisIdealKilo>0){
+        kilo = this.model.duzltilmisIdealKilo;
       }
+      if(this.model.cinsiyet==='e'){
+        this.model.bazalEnerji = parseFloat(parseFloat((66.75 + (kilo * 13.75) + (this.model.boy * 5) - (this.model.yas * 6.76)).toString()).toFixed(2));
+      }else{
+        this.model.bazalEnerji = parseFloat(parseFloat((655.1 + (kilo * 9.56) + (this.model.boy *1.85) - (this.model.yas * 4.86)).toString()).toFixed(2));
+      }
+
+      if(isAktivite && isStress){
+        this.model.gunlukEnerji = parseFloat(parseFloat((this.model.bazalEnerji * this.model.stresDegeri + this.model.aktiviteDegeri).toString()).toFixed(2));
+        
+      }
+
     }
     
 

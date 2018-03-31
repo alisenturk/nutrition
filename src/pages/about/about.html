@@ -25,6 +25,10 @@
       </ion-select>
     </ion-item>
     <ion-item>
+      <ion-label>Düzeltilmiş İdeal Kilo</ion-label>
+      <ion-input type="number" [(ngModel)]="model.duzltilmisIdealKilo"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label>Stres Değeri</ion-label>
       <ion-input type="number" [(ngModel)]="model.stresDegeri"></ion-input>
     </ion-item>
@@ -62,7 +66,7 @@
             G. Enerji İhtiyacı
           </ion-col>
           <ion-col col-7 *ngIf="model.gunlukEnerji">
-            {{model.gunlukEnerji}}
+            {{model.gunlukEnerji}} KCAL
           </ion-col>
         </ion-row>
 

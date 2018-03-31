@@ -9,5 +9,6 @@ export class NutritionCalc{
     public  bazalEnerji:number;
     public  idealKilo:number;
     public  gunlukEnerji:number;
+    public duzltilmisIdealKilo:number;
         
 }

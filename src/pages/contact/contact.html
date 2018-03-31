@@ -1,16 +1,47 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Orta Kol Alan Hesaplama
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <h3>Değerler</h3>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      
+      <ion-label>Cinsiyet</ion-label>
+      <ion-select [(ngModel)]="model.cinsiyet">
+        <ion-option value="k">Kadın</ion-option>
+        <ion-option value="e">Erkek</ion-option>
+      </ion-select>
     </ion-item>
+    <ion-item>
+      <ion-label>Triceps Cilt Kalınlığı</ion-label>
+      <ion-input type="number" [(ngModel)]="model.tricepsCiltKalinligi"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Orta Kol Çapı</ion-label>
+      <ion-input type="number" [(ngModel)]="model.ortaKolCapi"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large (click)="calc()">Hesapla </button>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-5 *ngIf="model.sonuc">
+            Sonuç
+          </ion-col>
+          <ion-col col-7 *ngIf="model.sonuc">
+            {{model.sonuc}} cm^2
+          </ion-col>
+
+        </ion-row>
+
+      </ion-grid>
+    </ion-item>
+
   </ion-list>
+
 </ion-content>
